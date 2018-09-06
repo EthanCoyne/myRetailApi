@@ -8,13 +8,8 @@ import org.mockito.junit.MockitoJUnitRunner;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
-import org.mockito.junit.MockitoJUnitRunner;
 
-import javax.ws.rs.NotFoundException;
 
 @RunWith(MockitoJUnitRunner.class)
 public class RedSkyApiServiceTest {
@@ -29,7 +24,6 @@ public class RedSkyApiServiceTest {
 
     private String badId;
 
-
     @Before
     public void setUp() throws Exception {
         MockitoAnnotations.initMocks(this);
@@ -39,11 +33,6 @@ public class RedSkyApiServiceTest {
         productNode = objectMapper.readTree(productString).get("product");
         productTitle = "The Big Lebowski";
         badId = "99999";
-    }
-
-    @Test(expected = NotFoundException.class)
-    public void testGetProductInfoWithBadId() {
-
     }
 
     @Test

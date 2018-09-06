@@ -8,15 +8,29 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+/**
+ * Class to be extended by services wishing to query APIs
+ *
+ */
 @Service
 public class BaseApiService {
-    public String url;
+    String url;
 
-    public void setUrl(String url) {
+    /**
+     * Classes extending the BaseApiService can use this method to set the base URL of a given API it will use.
+     * @param url URL of the intended API to query
+     */
+    void setBaseUrl(String url) {
         this.url = url;
     }
 
-    public String getPayload(final String url) throws IOException {
+    /**
+     *
+     * @param url URL of the intended API to query
+     * @return String result of query
+     * @throws IOException IOException connection failure
+     */
+    String getPayload(final String url) throws IOException {
         HttpURLConnection connection = null;
 
         try {
@@ -46,6 +60,12 @@ public class BaseApiService {
 
     }
 
+    /**
+     * Reads text from a character-input stream
+     *
+     * @param connection HttpURLConnection
+     * @return BufferedReader
+     */
     private static BufferedReader setBufferedReader(HttpURLConnection connection) {
         BufferedReader bufferedReader = null;
 

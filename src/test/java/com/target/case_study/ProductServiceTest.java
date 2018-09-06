@@ -2,9 +2,9 @@ package com.target.case_study;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.target.case_study.domain.CurrentPricing;
-import com.target.case_study.domain.Product;
-import com.target.case_study.repositories.CurrentPricingRepository;
+import com.target.case_study.model.CurrentPricing;
+import com.target.case_study.model.Product;
+import com.target.case_study.repository.CurrentPricingRepository;
 import com.target.case_study.service.ProductService;
 import com.target.case_study.service.RedSkyApiService;
 import org.bson.types.ObjectId;

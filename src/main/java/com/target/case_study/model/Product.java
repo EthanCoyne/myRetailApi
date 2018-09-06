@@ -1,7 +1,10 @@
-package com.target.case_study.domain;
+package com.target.case_study.model;
 
 import org.springframework.data.annotation.Id;
 
+/**
+ * Collection of Product title and pricing information
+ */
 public class Product {
 
     @Id
@@ -37,13 +40,6 @@ public class Product {
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-
-    public void setProductInfo(Integer id, String name, CurrentPricing current_price) {
-        this.id = id;
-        this.name = name;
-        this.current_price = current_price;
     }
 
     public Product(Integer id, String name, CurrentPricing current_price) {

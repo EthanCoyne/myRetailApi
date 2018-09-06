@@ -1,10 +1,13 @@
-package com.target.case_study.domain;
+package com.target.case_study.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+/**
+ * Collection of current product pricing and currency code information
+ */
 @Document(collection = "current_pricing")
 public class CurrentPricing {
 

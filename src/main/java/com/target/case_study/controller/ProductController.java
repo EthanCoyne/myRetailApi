@@ -1,11 +1,8 @@
 package com.target.case_study.controller;
 
-import com.target.case_study.domain.CurrentPricing;
-import com.target.case_study.domain.Product;
-import com.target.case_study.repositories.CurrentPricingRepository;
+import com.target.case_study.model.CurrentPricing;
+import com.target.case_study.model.Product;
 import com.target.case_study.service.ProductService;
-import org.bson.types.ObjectId;
-import org.omg.CosNaming.NamingContextPackage.NotFound;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,7 +10,6 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.ws.rs.BadRequestException;
 import javax.ws.rs.NotFoundException;
-import javax.ws.rs.Path;
 import javax.ws.rs.core.MediaType;
 import java.io.IOException;
 
@@ -25,6 +21,12 @@ public class ProductController {
     @Autowired
     private ProductService productService;
 
+    /**
+     * GET request for retrieving products by id
+     *
+     * @param id productId
+     * @return ResponseEntity collection of product title and pricing information
+     */
     @RequestMapping(value = "/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON)
     public ResponseEntity<?> getProduct(@PathVariable("id") String id) {
         ResponseEntity result;
@@ -44,6 +46,14 @@ public class ProductController {
         return result;
     }
 
+    /**
+     * PUT request for updating product pricing info by querying the mongoDB instance for matching product pricing and
+     * updating if an entry with matching productId is found.
+     *
+     * @param id productId
+     * @param currentPricing CurrentPricing
+     * @return ResponseEntity result status code: 200, 400, or 404
+     */
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
     public ResponseEntity<?> updateProductPricingByProductId(@PathVariable("id") String id, @RequestBody CurrentPricing currentPricing) {
         ResponseEntity result;
