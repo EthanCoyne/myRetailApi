@@ -10,7 +10,10 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.MockitoAnnotations;
 
-
+/**
+ * Tests for RedSkyApiService class
+ * TODO: Create integration tests for getProductInfo that queries the API
+ */
 @RunWith(MockitoJUnitRunner.class)
 public class RedSkyApiServiceTest {
 
@@ -36,7 +39,7 @@ public class RedSkyApiServiceTest {
     }
 
     @Test
-    public void testGetProductTitle() {
+    public void testGetProductTitleRetrievesTitle() {
         String expectedResult = productTitle;
         String actualResult = redSkyApiService.getProductTitle(productNode);
 
